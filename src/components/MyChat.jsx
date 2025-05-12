@@ -1,6 +1,6 @@
 import { FaUser, FaRobot } from "react-icons/fa";
 
-const Chat = ({ chatData = [] }) => {
+const MyChat = ({ chatData = [] }) => {
     return (
         <div className="bg-white py-8 px-4 sm:px-8 h-full overflow-auto">
             {chatData.map((item, idx) => (
@@ -42,4 +42,4 @@ const ChatMessage = ({ type, text }) => {
     );
 };
 
-export default Chat
+export default MyChat

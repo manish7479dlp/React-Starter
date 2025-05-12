@@ -3,26 +3,21 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 
 export default function MyDataGrid({ rows, columns }) {
   return (
-    <div className="h-full w-full">
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        sx={{
-          fontSize: "15px",
-          "& .MuiDataGrid-cell": {
-            padding: "10px",
-          },
-        }}
-        slots={{ toolbar: GridToolbar }}
-        getRowHeight={() => "auto"}
-        pagination
-        pageSizeOptions={[5, 10]}
-        initialState={{
-          pagination: {
-            paginationModel: { pageSize: 10, page: 0 },
-          },
-        }}
-      />
-    </div>
+    // <div className="h-full w-full">
+    <DataGrid
+      rows={rows}
+      columns={columns}
+      components={{
+        Toolbar: GridToolbar,
+      }}
+      pagination
+      pageSizeOptions={[5, 10]}
+      initialState={{
+        pagination: {
+          paginationModel: { pageSize: 10, page: 0 },
+        },
+      }}
+    />
+    // </div>
   );
 }

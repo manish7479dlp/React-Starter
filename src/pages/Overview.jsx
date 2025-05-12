@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import MyDataGrid from '../components/Form/MyDataGrid';
 import MyModel from '../components/MyModel';
-import Chat from '../components/Chat';
 import { DATA } from '../data';
 import { extractColumns } from '../utils/helper';
+import MyChat from '../components/MyChat';
+import DashboardStats from '../components/Test';
 
 const Overview = () => {
     return (
         <div className='h-full flex flex-col gap-2'>
+            {/* <DashboardStats /> */}
             <Table />
         </div>
     )
@@ -71,11 +73,14 @@ const Table = () => {
     return (
         <>
             <MyDataGrid rows={rows} columns={columns} />
-            <MyModel openModal={openModal} setOpenModal={setOpenModal} title={title} RENDER_COMPONENT={<Chat chatData={chatData} />} />
+            <MyModel openModal={openModal} setOpenModal={setOpenModal} title={title} RENDER_COMPONENT={<MyChat chatData={chatData} />} />
 
         </>
     )
 }
+
+
+
 
 
 

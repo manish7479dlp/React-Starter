@@ -1,6 +1,7 @@
 import DashboardTemplate from '../Template/DashboardTemplate';
 import { GrOverview } from "react-icons/gr";
 import { AiFillWechat } from "react-icons/ai";
+import { FaRegUser } from "react-icons/fa";
 
 const DATA = [
   {
@@ -9,11 +10,6 @@ const DATA = [
     icon: <GrOverview />,
     to: "overview",
     subMenu: [
-      {
-        name: "Fontend",
-        icon: "",
-        to: "fontend"
-      },
     ]
   },
   {
@@ -27,22 +23,13 @@ const DATA = [
   },
   {
     haveSubMenu: false,
-    name: "Settings",
-    icon: <GrOverview />,
-    to: "settings",
+    name: "User",
+    icon: <FaRegUser size={"20px"} />,
+    to: "user",
     subMenu: [
 
     ]
   },
-  {
-    haveSubMenu: false,
-    name: "Profile",
-    icon: <GrOverview />,
-    to: "profile",
-    subMenu: [
-
-    ]
-  }
 
 ]
 
