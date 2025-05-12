@@ -6,8 +6,14 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'], // or your preferred font
+        helvetica: ['"Helvetica Neue"', '"Helvetica Neue Condensed"', 'Helvetica', 'Arial', 'sans-serif'],
       },
+      colors: {
+        primary: '#E30613',    // e.g., blue-700
+        // secondary: '#9333EA',  // e.g., purple-600
+        // danger: '#DC2626',     // e.g., red-600
+        // Add more as needed
+      }
     },
   },
   plugins: [],

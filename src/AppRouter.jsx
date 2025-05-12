@@ -1,11 +1,11 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Login from '../pages/Login';
-import PageNotFound from '../components/PageNotFound';
-import ProtectedRoute from '../components/ProtectedRoute';
-import Dashboard from '../pages/Dashboard';
-import { PROTECTED_ROUTES, ROUTES } from '../constants/routeConstants';
-import Overview from '../pages/Overview';
+import Login from './pages/Login';
+import PageNotFound from './components/PageNotFound';
+import ProtectedRoute from './components/ProtectedRoute';
+import Dashboard from './pages/Dashboard';
+import { PROTECTED_ROUTES, ROUTES } from './constants/routeConstants';
+import Overview from './pages/Overview';
 
 const AppRouter = () => {
   return (

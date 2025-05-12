@@ -1,4 +1,5 @@
 import { Avatar } from '@mui/material';
+import logo from "../assets/century-icon.png"
 const x = "Manish Gupta"
 
 const Header = () => {
@@ -9,13 +10,25 @@ const Header = () => {
     logedInUserName = x;
   }
 
-  return <div className="h-14 w-full flex items-center justify-between px-4  bg-white shadow-md">
-    <p>Company Icon / Free Text</p>
+  return <div className="h-14 w-full flex items-center justify-between px-10  bg-white shadow-md">
+    <Icon />
     <AvatarWthName name={logedInUserName} />
   </div>;
 };
 
 export default Header;
+
+const Icon = () => {
+  return (
+    <div className='flex gap-2 h-full items-center'>
+      <div className='w-[95px]'>
+        <img src={logo} alt='logo' className='w-full' />
+      </div>
+      {/* |
+      <p className='text-xl font-bold p-0 m-0'>Pragyan</p> */}
+    </div>
+  )
+}
 
 const AvatarWthName = ({ name }) => {
 
@@ -61,5 +74,3 @@ const AvatarWthName = ({ name }) => {
     );
   }
 }
-
-

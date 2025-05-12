@@ -3,26 +3,16 @@ import { GrOverview } from "react-icons/gr";
 
 const DATA = [
   {
-    haveSubMenu: true,
+    haveSubMenu: false,
     name: "Developer",
-    icon: "",
-    to: "",
+    icon: <GrOverview />,
+    to: "/developer",
     subMenu: [
       {
         name: "Fontend",
         icon: "",
         to: "fontend"
       },
-      {
-        name: "Backend",
-        icon: "",
-        to: "backend"
-      },
-      {
-        name: "Devops",
-        icon: "",
-        to: "devops"
-      }
     ]
   },
   {
@@ -31,44 +21,16 @@ const DATA = [
     icon: <GrOverview />,
     to: "settings",
     subMenu: [
-      {
-        name: "Fontend",
-        icon: "",
-        to: "fontend"
-      },
-      {
-        name: "Backend",
-        icon: "",
-        to: "backend"
-      },
-      {
-        name: "Devops",
-        icon: "",
-        to: "devops"
-      }
+
     ]
   },
   {
-    haveSubMenu: true,
+    haveSubMenu: false,
     name: "Profile",
-    icon: "",
+    icon: <GrOverview />,
     to: "profile",
     subMenu: [
-      {
-        name: "Fontend",
-        icon: "",
-        to: "fontend"
-      },
-      {
-        name: "Backend",
-        icon: "",
-        to: "backend"
-      },
-      {
-        name: "Devops",
-        icon: "",
-        to: "devops"
-      }
+
     ]
   }
 ]
@@ -80,4 +42,76 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+// const DATA = [
+//   {
+//     haveSubMenu: true,
+//     name: "Developer",
+//     icon: "",
+//     to: "",
+//     subMenu: [
+//       {
+//         name: "Fontend",
+//         icon: "",
+//         to: "fontend"
+//       },
+//       {
+//         name: "Backend",
+//         icon: "",
+//         to: "backend"
+//       },
+//       {
+//         name: "Devops",
+//         icon: "",
+//         to: "devops"
+//       }
+//     ]
+//   },
+//   {
+//     haveSubMenu: false,
+//     name: "Settings",
+//     icon: <GrOverview />,
+//     to: "settings",
+//     subMenu: [
+//       {
+//         name: "Fontend",
+//         icon: "",
+//         to: "fontend"
+//       },
+//       {
+//         name: "Backend",
+//         icon: "",
+//         to: "backend"
+//       },
+//       {
+//         name: "Devops",
+//         icon: "",
+//         to: "devops"
+//       }
+//     ]
+//   },
+//   {
+//     haveSubMenu: true,
+//     name: "Profile",
+//     icon: "",
+//     to: "profile",
+//     subMenu: [
+//       {
+//         name: "Fontend",
+//         icon: "",
+//         to: "fontend"
+//       },
+//       {
+//         name: "Backend",
+//         icon: "",
+//         to: "backend"
+//       },
+//       {
+//         name: "Devops",
+//         icon: "",
+//         to: "devops"
+//       }
+//     ]
+//   }
+// ]
 
