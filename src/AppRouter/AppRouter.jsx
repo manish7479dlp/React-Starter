@@ -21,8 +21,10 @@ const AppRouter = () => {
           <Route path="overview" element={<Overview />} />
           <Route path="settings" element={<div>Settings</div>} />
           <Route path="profile" element={<div>Profile</div>} />
+          <Route path='fontend' element={<div>Fontend</div>} />
         </Route>
       </Route>
+
 
       <Route path={ROUTES.PAGE_NOT_FOUND} element={<PageNotFound />} />
     </Routes>
