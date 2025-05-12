@@ -10,7 +10,7 @@ const Header = () => {
     logedInUserName = x;
   }
 
-  return <div className="h-14 w-full flex items-center justify-between px-10  bg-white shadow-md">
+  return <div className="h-[65px] w-full flex items-center justify-between px-10  bg-white shadow-md">
     <Icon />
     <AvatarWthName name={logedInUserName} />
   </div>;
@@ -21,7 +21,7 @@ export default Header;
 const Icon = () => {
   return (
     <div className='flex gap-2 h-full items-center'>
-      <div className='w-[95px]'>
+      <div className='w-[80px]'>
         <img src={logo} alt='logo' className='w-full' />
       </div>
       {/* |

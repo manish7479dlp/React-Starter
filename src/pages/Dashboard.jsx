@@ -1,18 +1,28 @@
 import DashboardTemplate from '../Template/DashboardTemplate';
 import { GrOverview } from "react-icons/gr";
+import { AiFillWechat } from "react-icons/ai";
 
 const DATA = [
   {
     haveSubMenu: false,
-    name: "Developer",
+    name: "Overview",
     icon: <GrOverview />,
-    to: "/developer",
+    to: "overview",
     subMenu: [
       {
         name: "Fontend",
         icon: "",
         to: "fontend"
       },
+    ]
+  },
+  {
+    haveSubMenu: false,
+    name: "Chat",
+    icon: <AiFillWechat size={"30px"} />,
+    to: "chat",
+    subMenu: [
+
     ]
   },
   {
@@ -33,11 +43,14 @@ const DATA = [
 
     ]
   }
+
 ]
 
 const Dashboard = () => {
   return (
-    <DashboardTemplate sidebarData={DATA} />
+    <>
+      <DashboardTemplate sidebarData={DATA} />
+    </>
   );
 };
 

@@ -31,7 +31,7 @@ const CustomSidebar = ({ sidebarData }) => {
                     [`.${sidebarClasses.container}`]: {
                         backgroundColor: 'white',
                         height: '100%',
-                        padding: '10px',
+
                         // paddingTop: "30px"
                     },
 
@@ -53,6 +53,8 @@ const CustomSidebar = ({ sidebarData }) => {
                                 borderStyle: 'solid',
                             },
                             marginBottom: '4px',
+
+                            margin: isCollapsed ? "" : "10px"
 
                         },
                     }}
@@ -85,7 +87,7 @@ const CustomSidebar = ({ sidebarData }) => {
                 </div>
             </Sidebar>
 
-            <div className='absolute bottom-0  w-full px-2'>
+            <div className='absolute bottom-0  w-full px-5'>
                 <div className={`flex justify-between ${isCollapsed && " flex-col-reverse"} flex-1`}>
                     <p className='text-sm text-center my-2 text-gray-500'>{`${isCollapsed ? "V" : "Version"} : ${VERSION}`}</p>
                     <div className='text-center'>
@@ -103,7 +105,6 @@ const CustomSidebar = ({ sidebarData }) => {
 export default CustomSidebar
 
 const RenderSubMenu = ({ data }) => {
-    console.log(data)
     return (
         <MenuItem icon={data.icon ?? null} component={<NavLink to={data.to} />}>
             <p className='text-md'>{data.name}</p>

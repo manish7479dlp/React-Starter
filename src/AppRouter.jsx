@@ -6,6 +6,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Dashboard from './pages/Dashboard';
 import { PROTECTED_ROUTES, ROUTES } from './constants/routeConstants';
 import Overview from './pages/Overview';
+import Chat from './components/Chat';
 
 const AppRouter = () => {
   return (
@@ -19,6 +20,8 @@ const AppRouter = () => {
         <Route path={PROTECTED_ROUTES.DASHBOARD} element={<Dashboard />}>
           <Route index element={<Navigate to="overview" replace />} />
           <Route path="overview" element={<Overview />} />
+          <Route path="chat" element={<Chat />} />
+
           <Route path="settings" element={<div>Settings</div>} />
           <Route path="profile" element={<div>Profile</div>} />
           <Route path='fontend' element={<div>Fontend</div>} />
