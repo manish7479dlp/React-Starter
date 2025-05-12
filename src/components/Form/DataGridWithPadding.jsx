@@ -13,9 +13,7 @@ export default function DataGridWithPadding({ rows, columns }) {
                 },
             }}
             slots={{ toolbar: GridToolbar }}
-            components={{
-                Toolbar: GridToolbar,
-            }}
+            showToolbar
             getRowHeight={() => "auto"}
             pagination
             pageSizeOptions={[5, 10]}
