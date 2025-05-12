@@ -20,7 +20,7 @@ const Table = () => {
     const [columns, setColumns] = useState([])
     const [openModal, setOpenModal] = useState(false)
     const [chatData, setChatData] = useState([])
-    const title = "All Chats"
+    const [title, setTitle] = useState()
 
     useEffect(() => {
         // Example usage
@@ -62,10 +62,11 @@ const Table = () => {
     }, []);
 
     const handleShowChat = (row) => {
+        const dtitle = `Chats of ${row?.name}`
+        setTitle(dtitle)
         setOpenModal((pre) => !pre)
         setChatData(row.chat)
     }
-
 
     return (
         <>
