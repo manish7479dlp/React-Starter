@@ -17,8 +17,6 @@ const Chat = () => {
     const [dateRange, setDateRange] = useState([]);
     const [name, setName] = useState([])
 
-    console.log(name)
-
     let filteredResults = dateRange.length > 0
         ? rows.filter((asset) => {
             const assetDate = dayjs(asset.timestamp).startOf('day');
@@ -43,30 +41,36 @@ const Chat = () => {
     return (
         <div className='h-full w-full flex flex-col gap-2'>
             <Breadcrumbs />
-            <div className="w-full flex gap-3">
-                <Select
-                    isMulti={false}
-                    value={selectedOption}
-                    onChange={(selectedOption) => {
-                        const selectedValue = selectedOption?.value || "";
-                        setName(selectedValue);
-                    }}
-                    closeMenuOnSelect={true}
-                    placeholder="Select Name"
-                    className="basic-multi-select w-full"
-                    classNamePrefix="select"
-                    options={options}
-                    isClearable={true} // Optional: Adds built-in clear (x) button
-                />
-
-                <div>
-                    <MyDatePicker setDateRange={setDateRange} />
-                </div>
-            </div>
+            <Filter options={options} selectedOption={selectedOption} setName={setName} setDateRange={setDateRange} />
             <DataGridWithPadding rows={filteredResults} columns={columns} />
         </div>
     );
 };
 
 export default Chat;
+
+
+const Filter = ({ options, selectedOption, setName, setDateRange }) => {
+    return (
+        <div className='w-full flex gap-2'>
+            <Select
+                isMulti={false}
+                value={selectedOption}
+                onChange={(selectedOption) => {
+                    const selectedValue = selectedOption?.value || "";
+                    setName(selectedValue);
+                }}
+                closeMenuOnSelect={true}
+                placeholder="Select Name"
+                className="basic-multi-select w-full"
+                classNamePrefix="select"
+                options={options}
+                isClearable={true} // Optional: Adds built-in clear (x) button
+            />
+            <div className='w-[550px]'>
+                <MyDatePicker setDateRange={setDateRange} />
+            </div>
+        </div>
+    )
+}
 

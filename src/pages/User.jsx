@@ -3,9 +3,10 @@ import MyDataGrid from '../components/Form/MyDataGrid'
 import { extractColumns } from '../utils/helper'
 import { Chip } from '@mui/material'
 import Select from 'react-select'
-import { Input } from '@mui/joy'
+// import { Input } from '@mui/joy'
 import { toast } from 'react-toastify'
 import Breadcrumbs from '../components/Breadcrumb/Breadcrumb'
+import { Input } from '@mui/joy'
 "react-select"
 
 const USER_DATA = [
@@ -237,8 +238,6 @@ const USER_DATA = [
     // Continue up to id 50 similarly
 ]
 
-
-
 const User = () => {
     const [rows, setRows] = useState(USER_DATA)
     const [columns, setColumns] = useState(extractColumns(USER_DATA, ["id", "status"]))
@@ -345,11 +344,12 @@ const User = () => {
             <Breadcrumbs />
             <Input
                 placeholder="Search..."
-                variant="soft"
+                variant="outlined"
                 className="w-full"
                 onChange={(e) => {
                     setsearchtext(e.target.value);
                 }}
+                sx={{ padding: "8px" }}
                 value={searchtext}
             />
             <MyDataGrid rows={filteredData} columns={columns} />

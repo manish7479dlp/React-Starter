@@ -42,6 +42,32 @@ const KPI_DATA = [
 const Overview = () => {
     const [kpiData, setKpiData] = useState(KPI_DATA)
     const [searchtext, setsearchtext] = useState("")
+    const [rows, setRows] = useState(USER_CHAT_DATA)
+    const [dateRange, setDateRange] = useState([]);
+    const [name, setName] = useState([])
+
+    let filteredData = dateRange.length > 0
+        ? rows.filter((asset) => {
+            const assetDate = dayjs(asset.timestamp).startOf('day');
+            const [startDate, endDate] = dateRange.map((date) => dayjs(date).startOf('day'));
+            return assetDate.isValid() && assetDate.isBetween(startDate, endDate, null, '[]');
+        })
+        : rows;
+
+
+    filteredData = filteredData.filter((item) => {
+        const matchesSearch =
+            !searchtext ||
+            Object.values(item).some(
+                (value) =>
+                    value &&
+                    typeof value === "string" &&
+                    value.toLowerCase().includes(searchtext.toLowerCase())
+            );
+
+        return matchesSearch;
+    });
+
     return (
         <div className='h-full flex flex-col gap-2'>
             <Breadcrumbs />
@@ -67,8 +93,9 @@ const Overview = () => {
                     </div>
                 </div>
                 <div className='flex flex-col gap-2'>
-                    <Filter />
-                    <Table DATA={USER_CHAT_DATA} />
+                    <Filter searchtext={searchtext} setsearchtext={setsearchtext} setDateRange={setDateRange} />
+
+                    <Table DATA={filteredData} />
                 </div>
             </div>
         </div>
@@ -78,11 +105,15 @@ const Overview = () => {
 export default Overview;
 
 const Table = ({ DATA }) => {
-    const [rows, setRows] = useState(DATA)
+    const [rows, setRows] = useState([])
     const [columns, setColumns] = useState([])
     const [openModal, setOpenModal] = useState(false)
     const [chatData, setChatData] = useState([])
     const [title, setTitle] = useState()
+
+    useEffect(() => {
+        setRows(DATA)
+    }, [DATA])
 
     useEffect(() => {
         // Example usage
@@ -144,11 +175,12 @@ const Filter = ({ searchtext, setsearchtext = () => { } }) => {
         <div className='w-full flex gap-2'>
             <Input
                 placeholder="Search..."
-                variant="soft"
+                variant="outlined"
                 className="w-full"
                 onChange={(e) => {
                     setsearchtext(e.target.value);
                 }}
+                // sx={{ padding: "8px" }}
                 value={searchtext}
             />
             <div className='w-[550px]'>
