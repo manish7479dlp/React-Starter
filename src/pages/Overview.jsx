@@ -12,7 +12,7 @@ import { MdFeedback, MdErrorOutline } from "react-icons/md";
 import { IoToday } from "react-icons/io5";
 import MyDatePicker from '../components/Form/MyDatePicker';
 import { Input } from '@mui/joy';
-import PremiumEquivalentChart from '../components/PremiumEquivalentChart ';
+import ChatPromptChart from '../components/ChatPromptChart';
 
 
 const KPI_DATA = [
@@ -55,7 +55,7 @@ const Overview = () => {
 
             <div className='h-full overflow-auto flex gap-2 flex-col'>
                 <div className='w-[550px]'>
-                    <PremiumEquivalentChart />
+                    <ChatPromptChart />
                 </div>
 
                 <div className='flex flex-col gap-2'>
