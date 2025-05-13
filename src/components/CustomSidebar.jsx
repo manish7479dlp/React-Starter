@@ -34,7 +34,7 @@ const CustomSidebar = ({ sidebarData }) => {
             }}
             collapsed={isCollapsed}
         >
-            <div className='flex flex-col items-center gap-4 border-b-2 border-solid my-4'>
+            <div className='flex flex-col items-center gap-2 border-b-2 border-solid my-2'>
                 <Icon isCollapsed={isCollapsed} />
                 <VersionAndToggle setIsCollapsed={setIsCollapsed} isCollapsed={isCollapsed} VERSION={VERSION} />
             </div>
