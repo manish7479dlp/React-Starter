@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import MyDataGrid from '../components/Form/MyDataGrid';
 import MyModel from '../components/MyModel';
-import { DATA } from '../data';
+import { USER_CHAT_DATA } from '../data';
 import { extractColumns } from '../utils/helper';
 import MyChat from '../components/MyChat';
 import Breadcrumbs from '../components/Breadcrumb/Breadcrumb';
@@ -68,7 +68,7 @@ const Overview = () => {
                 </div>
                 <div className='flex flex-col gap-2'>
                     <Filter />
-                    <Table />
+                    <Table DATA={USER_CHAT_DATA} />
                 </div>
             </div>
         </div>
@@ -77,7 +77,7 @@ const Overview = () => {
 
 export default Overview;
 
-const Table = () => {
+const Table = ({ DATA }) => {
     const [rows, setRows] = useState(DATA)
     const [columns, setColumns] = useState([])
     const [openModal, setOpenModal] = useState(false)
