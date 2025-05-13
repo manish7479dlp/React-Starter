@@ -4,14 +4,65 @@ import MyModel from '../components/MyModel';
 import { DATA } from '../data';
 import { extractColumns } from '../utils/helper';
 import MyChat from '../components/MyChat';
-import DashboardStats from '../components/Test';
 import Breadcrumbs from '../components/Breadcrumb/Breadcrumb';
+import KPI from '../components/KPI';
+
+import { IoCalendarNumberSharp } from "react-icons/io5";
+import { MdFeedback, MdErrorOutline } from "react-icons/md";
+import { IoToday } from "react-icons/io5";
+import MyDatePicker from '../components/Form/MyDatePicker';
+import { Input } from '@mui/joy';
+import PremiumEquivalentChart from '../components/PremiumEquivalentChart ';
+
+
+const KPI_DATA = [
+    {
+        title: "Hits per Month",
+        value: 12345,
+        icon: <IoCalendarNumberSharp className="text-white text-3xl" />,
+    },
+    {
+        title: "Hits per Day",
+        value: 466545,
+        icon: <IoToday className="text-white text-3xl" />,
+    },
+    {
+        title: "Feedback per Day",
+        value: 98763,
+        icon: <MdFeedback className="text-white text-3xl" />,
+    },
+    {
+        title: "Errors per Day",
+        value: 434,
+        icon: <MdErrorOutline className="text-white text-3xl" />,
+    },
+];
+
 
 const Overview = () => {
+    const [kpiData, setKpiData] = useState(KPI_DATA)
+    const [searchtext, setsearchtext] = useState("")
     return (
         <div className='h-full flex flex-col gap-2'>
-            {/* <DashboardStats /> */}
-            <Table />
+            <Breadcrumbs />
+            <div className='flex gap-10'>
+                {
+                    kpiData.map((kpi, idx) => {
+                        return < KPI key={idx} title={kpi.title} value={kpi.value} icon={kpi.icon} />
+                    })
+                }
+            </div>
+
+            <div className='h-full overflow-auto flex gap-2 flex-col'>
+                <div className='w-[550px]'>
+                    <PremiumEquivalentChart />
+                </div>
+
+                <div className='flex flex-col gap-2'>
+                    <Filter />
+                    <Table />
+                </div>
+            </div>
         </div>
     )
 };
@@ -73,7 +124,6 @@ const Table = () => {
 
     return (
         <>
-            <Breadcrumbs />
             <MyDataGrid rows={rows} columns={columns} />
             <MyModel openModal={openModal} setOpenModal={setOpenModal} title={title} RENDER_COMPONENT={<MyChat chatData={chatData} />} />
 
@@ -81,12 +131,22 @@ const Table = () => {
     )
 }
 
-
-
-
-
-
-
-
-
+const Filter = ({ searchtext, setsearchtext = () => { } }) => {
+    return (
+        <div className='w-full flex gap-2'>
+            <Input
+                placeholder="Search..."
+                variant="soft"
+                className="w-full"
+                onChange={(e) => {
+                    setsearchtext(e.target.value);
+                }}
+                value={searchtext}
+            />
+            <div className='w-[550px]'>
+                <MyDatePicker />
+            </div>
+        </div>
+    )
+}
 

@@ -1,5 +1,6 @@
 import { Avatar } from '@mui/material';
 import logo from "../assets/century-icon.png"
+import icon from "../assets/century-logo.png"
 const x = "Manish Gupta"
 
 const Header = () => {
@@ -31,11 +32,11 @@ export default Header;
 // }
 
 
-export const Icon = () => {
+export const Icon = ({ isCollapsed }) => {
   return (
     <div className='flex gap-2 h-full items-center'>
-      <div className='w-[160px]'>
-        <img src={logo} alt='logo' className='w-full' />
+      <div className={`${!isCollapsed ? "w-[160px]" : "w-[50px]"}`}>
+        <img src={isCollapsed ? icon : logo} alt='logo' className='w-full' />
       </div>
       {/* |
       <p className='text-xl font-bold p-0 m-0'>Pragyan</p> */}
@@ -43,12 +44,14 @@ export const Icon = () => {
   )
 }
 
-export const AvatarWthName = ({ name }) => {
+export const AvatarWthName = ({ name, isCollapsed }) => {
 
   return (
     <div className='flex gap-2 items-center'>
+
       <BackgroundLetterAvatars fullName={name} />
-      <p className='font-semibold'>{name.endsWith(".") ? name.slice(0, name.length - 1) : name}</p>
+      {!isCollapsed && <p className='font-semibold'>{name.endsWith(".") ? name.slice(0, name.length - 1) : name}</p>}
+
 
     </div>
   )

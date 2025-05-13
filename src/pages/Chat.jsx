@@ -163,7 +163,7 @@ const DATA = [
         "question": "What is a Stream in Java?",
         "answer": "Stream is an abstraction to process collections in a functional style.",
         "remarks": "Correct and clear.",
-        "timestamp": "2025-05-01T11:35:00Z"
+        "timestamp": "2025-05-03T11:35:00Z"
     }
 ]
 
@@ -235,6 +235,7 @@ import { DatePicker } from "antd";
 import dayjs from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';
 import Breadcrumbs from '../components/Breadcrumb/Breadcrumb';
+import MyDatePicker from '../components/Form/MyDatePicker';
 
 dayjs.extend(isBetween);
 
@@ -249,10 +250,9 @@ const Chat = () => {
 
     let filteredResults = dateRange.length > 0
         ? rows.filter((asset) => {
-            const od = asset.timestamp;
-            const assetDate = dayjs(od);
-            const [startDate, endDate] = dateRange.map((date) => dayjs(date));
-            return assetDate.isValid() && assetDate.isBetween(startDate, endDate, null, "[]");
+            const assetDate = dayjs(asset.timestamp).startOf('day');
+            const [startDate, endDate] = dateRange.map((date) => dayjs(date).startOf('day'));
+            return assetDate.isValid() && assetDate.isBetween(startDate, endDate, null, '[]');
         })
         : rows;
 
@@ -282,13 +282,7 @@ const Chat = () => {
                 />
 
                 <div>
-                    <DatePicker.RangePicker
-                        className="custom-range-picker font-medium text-geeen-100 p-2 rounded-lg border-gray-300 hover:border-blue-500 w-full"
-                        placeholder={["Start Date", "End Date"]}
-                        onChange={(date, dateString) => {
-                            setDateRange(dateString);
-                        }}
-                    />
+                    <MyDatePicker setDateRange={setDateRange} />
                 </div>
             </div>
             <DataGridWithPadding rows={filteredResults} columns={columns} />
