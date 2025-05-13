@@ -45,6 +45,8 @@ const Overview = () => {
     return (
         <div className='h-full flex flex-col gap-2'>
             <Breadcrumbs />
+
+            {/* KPI */}
             <div className='flex gap-10'>
                 {
                     kpiData.map((kpi, idx) => {
@@ -54,10 +56,16 @@ const Overview = () => {
             </div>
 
             <div className='h-full overflow-auto flex gap-2 flex-col'>
-                <div className='w-[550px]'>
-                    <ChatPromptChart />
-                </div>
 
+                <div className='w-full flex gap-2'>
+                    <div className='w-[450px]'>
+                        <ChatPromptChart />
+                    </div>
+
+                    <div className='flex-1'>
+                        <ChatPromptChart />
+                    </div>
+                </div>
                 <div className='flex flex-col gap-2'>
                     <Filter />
                     <Table />

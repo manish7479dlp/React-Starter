@@ -51,12 +51,12 @@ export const DATA = [
             {
                 prompt: "What is the DOM?",
                 response: "The DOM is a programming interface for HTML and XML documents, representing the page structure as a tree.",
-                timestamp: "2025-05-13T09:15:00"
+                timestamp: "2025-05-13T15:42:23"
             },
             {
                 prompt: "What is the difference between null and undefined?",
                 response: "`undefined` means a variable has been declared but not assigned a value; `null` is an assignment value that represents no value.",
-                timestamp: "2025-05-13T09:17:20"
+                timestamp: "2024-05-11T09:17:20"
             },
             {
                 prompt: "What is the event loop?",
