@@ -32,7 +32,6 @@ const Chat = () => {
     }
 
     const source = dateRange ? filteredResults : rows;
-
     const options = [...new Set(source.map((record) => record.name))].map((name) => ({
         label: name,
         value: name,
