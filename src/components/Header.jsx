@@ -18,10 +18,23 @@ const Header = () => {
 
 export default Header;
 
-const Icon = () => {
+// export const Icon = () => {
+//   return (
+//     <div className='flex gap-2 h-full items-center'>
+//       <div className='w-[80px]'>
+//         <img src={logo} alt='logo' className='w-full' />
+//       </div>
+//       {/* |
+//       <p className='text-xl font-bold p-0 m-0'>Pragyan</p> */}
+//     </div>
+//   )
+// }
+
+
+export const Icon = () => {
   return (
     <div className='flex gap-2 h-full items-center'>
-      <div className='w-[80px]'>
+      <div className='w-[160px]'>
         <img src={logo} alt='logo' className='w-full' />
       </div>
       {/* |
@@ -30,7 +43,7 @@ const Icon = () => {
   )
 }
 
-const AvatarWthName = ({ name }) => {
+export const AvatarWthName = ({ name }) => {
 
   return (
     <div className='flex gap-2 items-center'>

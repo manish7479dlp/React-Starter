@@ -7,9 +7,8 @@ export default function MyDataGrid({ rows, columns }) {
     <DataGrid
       rows={rows}
       columns={columns}
-      components={{
-        Toolbar: GridToolbar,
-      }}
+      showToolbar
+      slots={{ toolbar: GridToolbar }}
       pagination
       pageSizeOptions={[5, 10]}
       initialState={{

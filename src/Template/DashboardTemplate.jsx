@@ -34,8 +34,8 @@ import Breadcrumbs from '../components/Breadcrumb/Breadcrumb'
 const DashboardTemplate = ({ sidebarData }) => {
     return (
         <div className='h-screen w-full flex flex-col bg-[#cdf2f8] overflow-hidden gap-1'>
-            <Header />
-            <div className='flex flex-1 overflow-hidden gap-1 m-1 mt-0'>
+            {/* <Header /> */}
+            <div className='flex flex-1 overflow-hidden gap-1 m-1'>
                 {/* Sidebar Container */}
                 <div className='h-full rounded-md overflow-hidden'>
                     <CustomSidebar sidebarData={sidebarData} />
