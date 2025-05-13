@@ -5,6 +5,7 @@ import { DATA } from '../data';
 import { extractColumns } from '../utils/helper';
 import MyChat from '../components/MyChat';
 import DashboardStats from '../components/Test';
+import Breadcrumbs from '../components/Breadcrumb/Breadcrumb';
 
 const Overview = () => {
     return (
@@ -72,6 +73,7 @@ const Table = () => {
 
     return (
         <>
+            <Breadcrumbs />
             <MyDataGrid rows={rows} columns={columns} />
             <MyModel openModal={openModal} setOpenModal={setOpenModal} title={title} RENDER_COMPONENT={<MyChat chatData={chatData} />} />
 
