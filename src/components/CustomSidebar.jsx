@@ -34,8 +34,8 @@ const CustomSidebar = ({ sidebarData }) => {
             }}
             collapsed={isCollapsed}
         >
-            <div className='flex flex-col items-center gap-5 border-b-2 border-solid py-2'>
-                <Icon />
+            <div className='flex flex-col items-center gap-2 border-b-2 border-solid my-2'>
+                <Icon isCollapsed={isCollapsed} />
                 <VersionAndToggle setIsCollapsed={setIsCollapsed} isCollapsed={isCollapsed} VERSION={VERSION} />
             </div>
 
@@ -77,7 +77,7 @@ const CustomSidebar = ({ sidebarData }) => {
             </Menu>
 
             <div className='absolute bottom-0 w-full flex justify-center  mb-2'>
-                <AvatarWthName name={logedInUserName} />
+                <AvatarWthName name={logedInUserName} isCollapsed={isCollapsed} />
             </div>
 
         </Sidebar>
@@ -99,12 +99,12 @@ const RenderSubMenu = ({ data }) => {
 
 const VersionAndToggle = ({ setIsCollapsed = () => { }, isCollapsed, VERSION }) => {
     return (
-        <div className=' w-full px-5'>
-            <div className={`flex justify-between ${isCollapsed && " flex-col-reverse"} flex-1`}>
+        <div className={`w-full ${isCollapsed ? "px-0" : "px-5"}`}>
+            <div className={`flex items-center justify-between ${isCollapsed && " flex-col-reverse"} flex-1`}>
                 <p className='text-sm text-center my-2 text-gray-500'>{`${isCollapsed ? "V" : "Version"} : ${VERSION}`}</p>
                 <div className='text-center'>
                     <IconButton onClick={() => setIsCollapsed((pre) => !pre)}>
-                        <IoMenu />
+                        <IoMenu fontSize={"32px"} />
                     </IconButton>
                 </div>
             </div>
