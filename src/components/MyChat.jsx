@@ -40,7 +40,8 @@ const ChatMessage = ({ type, text, timestamp }) => {
                     )}
                 </div>
                 <div className="text-xs text-gray-600 mt-2 text-right">
-                    {dayjs(timestamp).fromNow()}
+                    {/* {dayjs(timestamp).fromNow()} */}
+                    {timestamp}
                 </div>
             </div>
             {isUser && (

@@ -1,25 +1,17 @@
-For modern browsers body {
-    overflow: auto;
-    scrollbar-width: none;
-    /* Firefox */
-    -ms-overflow-style: none;
-    /* Internet Explorer 10+ */
+/* Apply globally or to a specific element */
+::-webkit-scrollbar {
+    width: 3px;
+    /* Vertical scrollbar */
+    height: 4px;
+    /* Horizontal scrollbar */
 }
 
-body::-webkit-scrollbar {
-    display: none;
-    /* Chrome, Safari, Opera */
+::-webkit-scrollbar-track {
+    background: transparent;
+    /* or any color */
 }
 
-/* Hide scrollbar for all elements */
-* {
-    scrollbar-width: none;
-    /* Firefox */
-    -ms-overflow-style: none;
-    /* IE and Edge */
-}
-
-*::-webkit-scrollbar {
-    display: none;
-    /* Chrome, Safari and Opera */
+::-webkit-scrollbar-thumb {
+    background-color: #f16a6a;
+    border-radius: 50px;
 }

@@ -15,7 +15,7 @@ const MyModel = ({
         <Modal open={openModal} className="flex justify-center items-center">
             <Sheet
                 variant="outlined"
-                className="w-[90%] m-auto justify-center items-center"
+                className="w-[60rem] m-auto justify-center items-center"
                 sx={{
                     borderRadius: "md",
                     p: 3,
